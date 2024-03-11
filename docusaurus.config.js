@@ -84,6 +84,12 @@ const config = {
             position: 'left',
             label: '组件库',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'plugAppSidebar',
+            position: 'left',
+            label: 'app插件',
+          },
           {to: '/blog', label: '日志', position: 'right'},
           {
             href: 'https://github.com/MYangGit/Errantia-docs',

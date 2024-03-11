@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/article/quick_start/installUse">
-            Docusaurus Errantia - 5min ⏱️
+            Errantia Tutorial - 2min ⏱️
           </Link>
         </div>
       </div>

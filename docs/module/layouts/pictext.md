@@ -91,7 +91,6 @@ title: PicText 图文组合
 |outStyleLable|自定义文本元素样式|Object|—|
 |outStyleArrow|自定义折叠隐藏元素样式|Object|—|
 
-
 ### Events
 |事件名|说明|类型|
 |:------|:------|:------|

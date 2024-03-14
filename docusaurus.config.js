@@ -87,6 +87,12 @@ const config = {
           },
           {
             type: 'docSidebar',
+            sidebarId: 'caseSidebar',
+            position: 'left',
+            label: '案例',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'plugAppSidebar',
             position: 'left',
             label: 'app插件',

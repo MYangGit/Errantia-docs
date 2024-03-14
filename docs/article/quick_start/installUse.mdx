@@ -21,8 +21,38 @@ yarn add errantia
 # pnpm
 pnpm add errantia
 ``` -->
+
+#### 内部专用组件库安装方式(`@tongyuan/errantia`)
+:::info 信息
+内部安装方式推荐使用，首选设置@tongyuan scope registry作用域方式，如果不熟悉参考[npm.scope](https://docs.npmjs.com/cli/v10/using-npm/scope)。  
+现在，你的项目你只需要执行下面脚本命令即可：  
+```shell
+npm config set @tongyuan:registry https://packages.aliyun.com/5f422c87db0493ecef90df61/npm/npm-registry
+```
+:::
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+   ```bash
+   npm install @tongyuan/errantia
+   ```
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+  ```bash
+  yarn add @tongyuan/errantia
+  ```
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+  ```bash
+  pnpm add @tongyuan/errantia
+  ```
+  </TabItem>
+</Tabs>
+
+#### 公开组件库安装方式(`errantia`)
 
 <Tabs>
   <TabItem value="npm" label="npm" default>
@@ -43,17 +73,18 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 :::tip 提示
-安装最新版本需**errantia**更改为**errantia@latest**，更多参考[npm Documentation](https://docs.npmjs.com/about-npm)
+安装最新版本需**errantia**更改为**errantia@latest**，更多参考[npm Documentation](https://docs.npmjs.com/about-npm)    
+公开组件库与内部组件库关系：**内部包含公开**，*请按照实际情况选择，保障正常使用*。
 :::
 
 ## 使用
 ### 完整引入
-如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便。
+如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便.
 ```ts
 // main.ts
 import { createApp } from 'vue'
 import Errantia from 'errantia'
-import 'errantia/dist/style.css'
+import '../node_modules/errantia/dist/style.css'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -61,6 +92,11 @@ const app = createApp(App)
 app.use(Errantia)
 app.mount('#app')
 ```
+> 内部需要修改引入路径如下
+ ```js
+ import Errantia from '@tongyuan/errantia'
+ import '../node_modules/@tongyuan/errantia/dist/style.css'
+ ```
 ### 按需导入
 Errantia 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 >App.vue
@@ -80,7 +116,11 @@ Example:
 
 ```ts
 // 在 main.ts 一次导入即可
-import 'errantia/dist/style.css'
+import '../node_modules/errantia/dist/style.css'
 ```
 :::
+> 内部需要修改引入路径如下
+ ```js
+ import '../node_modules/@tongyuan/errantia/dist/style.css'
+ ```
 

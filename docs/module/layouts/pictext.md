@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 title: PicText 图文组合
 ---
 
@@ -83,6 +83,7 @@ title: PicText 图文组合
 |:------|:------|:------|:------|
 |horizontal|flex 主轴的方向是否垂直，使用 flex-direction: row|boolean|false|
 |disabled|是否禁用|boolean|false|
+|hasSubscript|是否显示折叠扩展下标|boolean|false|
 |iconPath|自定义前缀图标|string|—|
 |title|自定义文本内容|string|—|
 |outStylePicText|自定义组件最外层元素样式|Object|—|

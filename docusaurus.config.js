@@ -87,15 +87,21 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'caseSidebar',
+            sidebarId: 'plugAppSidebar',
             position: 'left',
-            label: '案例',
+            label: 'App',
           },
           {
             type: 'docSidebar',
-            sidebarId: 'plugAppSidebar',
+            sidebarId: 'apiSidebar',
             position: 'left',
-            label: 'app插件',
+            label: 'API',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'caseSidebar',
+            position: 'right',
+            label: '案例',
           },
           {to: '/blog', label: '日志', position: 'right'},
           {

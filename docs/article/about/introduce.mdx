@@ -1,0 +1,113 @@
+---
+sidebar_position: 1
+title: Errantia 介绍
+---
+## 简介
+
+Errantia 是一个开放式跨端跨框架解决方案，支持使用 React/Vue/Angular 等框架来开发 Web / Syslab App / Vscode 插件 等应用。
+:::tip 为什么使用Errabtia？不止专为Syslab App而生。
+当业务要求同时在不同的端都要求有所表现的时候，针对不同的端去编写多套代码的成本显然非常高，这时候只编写一套代码就能够适配到多端的能力就显得极为需要。
+:::
+
+## 特性
+### 多端转换支持
+
+Errantia 可以支持传统的Web开发结果转换到Syslab App平台。
+目前支持转换平台如下：
+*  🌐 Web应用
+* &nbsp;!['ico'](../../../static/img/faviconLab.ico)&nbsp;Syslab App 应用
+
+### 框架支持
+
+在 Errantia 中可以使用完整的 [React](https://react.dev/) / [Vue](https://vuejs.org/) / [Preact](https://preactjs.com/) / [Svelte](https://svelte.dev/) / [Angular](https://angular.cn/) 开发体验，具体请参考：
+* [基础教程——React](https://react.dev/)
+* [基础教程——Vue](https://vuejs.org/)
+* [基础教程——Angular](https://angular.cn/)
+* [基础教程——Angular](https://preactjs.com/)
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+ <TabItem value="Vue" label="Vue" default>
+ <details open>
+  <summary>示例代码</summary>
+   ```html
+   <script setup>
+      import { erFlex } from 'errantia'
+      import { ref, onMounted } from 'vue';
+      onMounted(() => {})
+      const msg = ref("你好!")
+   </script>
+
+   <template>
+      <erFlex>{{ msg }}</erFlex>
+   </template>
+
+   <style scoped>
+   </style>
+   ```
+  </details>
+
+  </TabItem>
+  <TabItem value="React" label="React">
+   <details open>
+   <summary>示例代码</summary>
+   ```js
+    import React, { useState, useEffect } from 'react'
+    function App() {
+      useEffect(() => {}, [])
+      const [state, setState] = useState('你好!')
+      return (
+        <>
+          <h1>{{ state }} </h1>
+        </>
+      )
+    }
+    export default App
+   ```
+  </details>
+  </TabItem>
+</Tabs>
+
+## 新闻资讯
+:::info Errantia next版本
+ Errantia 下一版本，即将支持Syslab平台拖拽自主设计App！
+:::
+:::info Errantia next版本
+ Errantia 下一版本，即将支持Syslab平台拖拽自主设计App！
+:::
+
+## Errantia 组件库
+> [Errantia 组件库](../../module/about/introduce)只能配合Vue框架使用  
+> 安装命令：`npm i errantia`  
+
+一款基于Syslab App业务设计开发的组件库。
+#### Errantia组件库 特性：
+- 📦 开箱即用。
+- ⚙️ 按需加载。
+- 🌈 选用自如。
+- 🎨 自定义组件风格。
+- 🛡  完美兼容Vue3。  
+**富含大量app 主界面布局、菜单栏、科学计算绘图和导入导出弹窗等业务组件，你无需手动与重复开发。**
+
+## Errantia 脚手架
+> [Errantia 脚手架](../quick_start/installUse.mdx)只能配合Vue/React框架使用  
+> 安装命令：`npm i create-errantia-app -g`  
+
+一款快速创建集成Syslab App开发与打包项目模板的脚手架。
+#### Errantia-cli 特性：
+* app开发与打包无需隔离分开
+* 支持Vue与React架构
+* 预装官方组件库与Syslab平台交互请求方式
+
+## 学习资源
+[【资讯】Syslab使用手册](http://docs-dev.tongyuan.cc/syslabdocs/Help/#/Doc/homepage.html)  
+[【教程】5 分钟上手 Erantia APP开发](../../plug_app/quick_start/)  
+[【教程】5 分钟上手 Erantia 组件库开发](../../module/wave/)  
+更多的资源请点击查看 [更多资源](/) ，如果您有好的资源或教程和大家分享，欢迎提交资源到 [awesome-errantia](/)。
+
+## 使用案例
+Errantia 已经投入了我们的生产环境中使用，业界也在广泛地使用 Errantia 开发Syslab应用。  
+[查看更多案例，请点击](../../case/wave/)  
+[我们正在征集更多优秀案例，欢迎点击提交](/)

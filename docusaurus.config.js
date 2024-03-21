@@ -87,15 +87,15 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'plugAppSidebar',
-            position: 'left',
-            label: 'App',
-          },
-          {
-            type: 'docSidebar',
             sidebarId: 'apiSidebar',
             position: 'left',
             label: 'API',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'plugAppSidebar',
+            position: 'left',
+            label: 'APP',
           },
           {
             type: 'docSidebar',

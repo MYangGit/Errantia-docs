@@ -5,122 +5,125 @@ title: 安装及使用
 ## 安装
 Errantia 项目基于 node，请确保已具备较新的 node 环境（>=16.20.0），推荐使用 node 版本管理工具 nvm 来管理 node，这样不仅可以很方便地切换 node 版本，而且全局安装时候也不用加 sudo 了。
 
-### CLI 安装
-
-#### 选择一个你喜欢的包管理器
-我们推荐使用 npm 或 yarn 或 pnpm 的方式进行开发，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处
-<!-- ```bash
+### CLI工具安装
+首先，你需要使用 npm 或者 yarn 全局安装create-erranit-app，或者直接使用 npx:
+```bash
 # 选择一个你喜欢的包管理器
 
-# NPM
-npm install errantia
+# 使用 npm 安装 CLI
+$ npm install -g create-errantia-app
 
-# Yarn
-yarn add errantia
+# OR 使用 yarn 安装 CLI
+$ yarn global add create-errantia-app
 
-# pnpm
-pnpm add errantia
-``` -->
-
-#### 内部专用组件库安装方式(`@tongyuan/errantia`)
-:::info 信息
-内部安装方式推荐使用，首选设置@tongyuan scope registry作用域方式，如果不熟悉参考[npm.scope](https://docs.npmjs.com/cli/v10/using-npm/scope)。  
-现在，你的项目你只需要执行下面脚本命令即可：  
-```shell
-npm config set @tongyuan:registry https://packages.aliyun.com/5f422c87db0493ecef90df61/npm/npm-registry
+# OR 安装了 cnpm，使用 cnpm 安装 CLI
+$ cnpm install -g create-errantia-app
+``` 
+#### 查看Errantia全部版本信息
+可以使用 npm info 查看 Errantia 版本信息，在这里你可以看到当前最新版本
+```bash
+$ npm info create-errantia-app
 ```
-:::
+![npminfo](../../article/image/npminfo.png)
+由图第 1 行可知最新版本，如果你用的是 beta 或者 canary 你可以通过 dist-tags: 下面那行看到最新的版本。
+#### 查看Errantia帮助命令
+```bash
+$ create-errantia-app -h
+```
+![help](../../article/image/help.png)
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## 项目初始化
+使用命令创建模板项目：
+```bash
+$ create-errantia-app init myApp
+```
+![init](../../article/image/init.png)  
+这时候你可以在项目目录下进行依赖安装与开发
+```js
+# 进入项目根目录
+$ cd myApp
 
-<Tabs>
-  <TabItem value="npm" label="npm" default>
+# 使用 yarn 安装依赖
+$ yarn
+
+# OR 使用 npm 安装依赖
+$ npm install
+
+# OR 使用 pnpm 安装依赖
+$ pnpm install
+
+# OR 使用 cnpm 安装依赖
+$ cnpm install
+```
+## 编译运行
+使用 Errantia 的模板项目你只需要进行正常的web网站开发与查看效果，然后通过配置好的命令打包在对应的平台使用。
+### Web 应用
+#### 编译命令
+``` bash
+# yarn
+$ yarn dev
+$ yarn build
+
+# or npm script
+$ npm run dev
+$ npm run build
+```
+想必你已经发现，web应用的开发与传统的[Vue](https://vuejs.org/)/[React](https://react.dev/)开发方式完全相同，在此不再详述。
+### Syslab App 应用
+Syslab App的应用的开发是在Web应用开发基础上，我们额外支持了与Syslab进行通信交互的[Api](../../api/about/apiExplain)和将Web build 的打包结果转换为Syslab App的能力。  
+因此你完全不用担心Syslab App开发会带来额外的工作，相反你能直接将已有Web应用转换为Syslab App。
+#### 编译命令
+``` bash
+# 同Web一样
+# yarn
+$ yarn dev
+$ yarn build
+
+# or npm script
+$ npm run dev
+$ npm run build
+```
+#### 转换为 Syslab App 命令
+1. step1: 配置你的 Syslab App 应用信息    
+   ![appConfig](../../article/image/appConfig.png)   
+   同步配置到package.json
    ```bash
-   npm install @tongyuan/errantia
+   $ yarn updata-package
    ```
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-  ```bash
-  yarn add @tongyuan/errantia
-  ```
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-  ```bash
-  pnpm add @tongyuan/errantia
-  ```
-  </TabItem>
-</Tabs>
-
-#### 公开组件库安装方式(`errantia`)
-
-<Tabs>
-  <TabItem value="npm" label="npm" default>
+2. step2: 使用 `vsce` 打包你的应用为`.vsix`文件  
+  全局安装vsce命令
    ```bash
-   npm install errantia
-   ```
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-  ```bash
-  yarn add errantia
-  ```
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-  ```bash
-  pnpm add errantia
-  ```
-  </TabItem>
-</Tabs>
+   # 使用 npm 安装
+   $ npm install -g vsce
 
+   # OR 使用 yarn 安装
+   $ yarn global add vsce
+   ```
+   运行打包命名
+   ```bash
+    $ vsce package
+   ```
+    :::tip 提示
+    运行`vsce package` 前请确保你的项目**dist**文件夹已经存在且内容最新，否则请先执行`yarn build`或其它打包命令。
+    :::
+#### Syslab 查看 App
+1. step1：打开Syslab Online版本
+2. step2：上传`.vsix` app文件
+![upfile](../../article/image/upfile.png)  
+3. step3：安装`.vsix` app文件为app
+![installApp](../../article/image/installApp.png) 
+4. step4：运行App
+![start](../../article/image/start.png) 
+5. step5: 查看效果
+![res](../../article/image/res.png) 
 :::tip 提示
-安装最新版本需**errantia**更改为**errantia@latest**，更多参考[npm Documentation](https://docs.npmjs.com/about-npm)    
-公开组件库与内部组件库关系：**内部包含公开**，*请按照实际情况选择，保障正常使用*。
+业界用户我们搭建了专属的[MoHub](https://mohub.net/home)平台供大家上传验证应用。
+使用方法：
+1. 打开[MoHub](https://mohub.net/home)
+2. 注册或登录
+3. 下拉选择`工作台`
+![openSyslab](../../article/image/openSyslab.png)  
+4. 点击`打开SysLab Online`
+![openSyslab](../../article/image/enter.png)  
 :::
-
-## 使用
-### 完整引入
-如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便.
-```ts
-// main.ts
-import { createApp } from 'vue'
-import Errantia from 'errantia'
-import '../node_modules/errantia/dist/style.css'
-import App from './App.vue'
-
-const app = createApp(App)
-
-app.use(Errantia)
-app.mount('#app')
-```
-> 内部需要修改引入路径如下
- ```js
- import Errantia from '@tongyuan/errantia'
- import '../node_modules/@tongyuan/errantia/dist/style.css'
- ```
-### 按需导入
-Errantia 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
->App.vue
-```html
-<script setup lang="ts">
-  import { erDialog } from 'errantia'
-</script>
-
-<template>
-  <erDialog :isVisible="true" title="Dialog">你好 Errantia</erDialog>
-</template>
-```
-:::warning 警告
-
-如果使用**按需导入**并且只使用了组件，你需要手动导入样式。  
-Example:
-
-```ts
-// 在 main.ts 一次导入即可
-import '../node_modules/errantia/dist/style.css'
-```
-:::
-> 内部需要修改引入路径如下
- ```js
- import '../node_modules/@tongyuan/errantia/dist/style.css'
- ```
 

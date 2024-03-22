@@ -1,8 +1,8 @@
 {
-  "label": "5分钟快速搭建app",
+  "label": "教程",
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "数据展示组件总栏"
+    "description": "教程总栏"
   }
 }

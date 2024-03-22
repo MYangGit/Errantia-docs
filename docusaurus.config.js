@@ -101,7 +101,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'caseSidebar',
             position: 'right',
-            label: '案例',
+            label: '案例/教程',
           },
           {to: '/blog', label: '日志', position: 'right'},
           {

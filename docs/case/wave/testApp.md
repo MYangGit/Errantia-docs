@@ -1,9 +1,17 @@
 ---
 sidebar_position: 1
-title: 5min组件库搭建小波去噪器
+title: 3min搭建Syslab App
 ---
-应用类型：Web应用  
-特征: Errantia 组件库 5分钟实现
+应用类型：Syslab App应用  
+特征:
+* 应用 Errantia 组件库
+* 读取 Syslab 平台变量
+* Syslab 运行 app 代码
+* 可视化科学计算绘图
+## 在我们开始之前
+我们将在这个教程开发一个简单的 绘制正弦和余弦曲线应用，你将在本节教程学到 Errantia 的基础知识、概念和部分优化技巧。  
+学习这些知识并不需要事先了解 Errantia、Web或Syslab App开发。  
+当你掌握这些知识之后，你应该可以快速高效地开发Syslab App应用。  
 ### 实现效果
 ![waveRes demo](./img/waveRes.png)
 

@@ -1,0 +1,123 @@
+---
+sidebar_position: 1
+title: 组件库说明
+---
+## 🎬 简介
+Errantia 以 Syslab App 为标准，结合 vue3 语法规范，定制了一套自己的组件库规范。  
+基于以上原则，Errantia 是一个开放式工业风WEB极简组件化解决方案，支持一件复制丰富组件来加速你的应用开发。
+:::info 信息
+现如今市面上各种端组件库多种多样，[Ant Design](https://ant-design.antgroup.com/index-cn)、[Element Plus](https://element-plus.org/zh-CN/)、[Taro](https://docs.taro.zone/docs/)等各种端组件库大行其道，但都偏向于互联网风格且业务量大功能成熟。当业务要求偏向极简工业软件风、轻量、易扩展，针对不同的风格去修改成熟引入重量的组件库成本显然非常高，这时候只编写轻量极简高扩展的代码就能够适配到各种场景的能力就显得极为需要。
+:::
+## ✨ 特性
+- 📦 开箱即用。
+- ⚙️ 按需加载。
+- 🌈 选用自如。
+- 🎨 自定义组件风格。
+- 🛡  完美兼容Vue3。
+
+**富含大量app 主界面布局、菜单栏、科学计算绘图和导入导出弹窗等业务组件，你无需手动与重复开发。**
+
+## 📌 安装
+Errantia 组件库 支持单独安装到你的非 Erranita 项目使用，如果你使用的 `create-errantia-app` 创建的 Errantia 可以跳过此组件库安装步骤，直接进入使用。
+#### 选择一个你喜欢的包管理器
+我们推荐使用 npm 或 yarn 或 pnpm 的方式进行开发，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处
+#### 内部专用组件库安装方式(`@tongyuan/errantia`)
+:::info 信息
+内部安装方式推荐使用，首选设置@tongyuan scope registry作用域方式，如果不熟悉参考[npm.scope](https://docs.npmjs.com/cli/v10/using-npm/scope)。  
+现在，你的项目你只需要执行下面脚本命令即可：  
+```bash
+$ npm config set @tongyuan:registry https://packages.aliyun.com/5f422c87db0493ecef90df61/npm/npm-registry
+```
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+  ```bash
+  $ npm install @tongyuan/errantia
+  ```
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+  ```bash
+  $ yarn add @tongyuan/errantia
+  ```
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+  ```bash
+  $ pnpm @tongyuan/errantia
+  ```
+  </TabItem>
+</Tabs>
+
+#### 公开组件库安装方式(`errantia`)
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+  ```bash
+  $ npm install errantia
+  ```
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+  ```bash
+  $ yarn add errantia
+  ```
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+  ```bash
+  $ pnpm  errantia
+  ```
+  </TabItem>
+</Tabs>
+
+:::tip 提示
+安装最新版本需**errantia**更改为**errantia@latest**，更多参考[npm Documentation](https://docs.npmjs.com/about-npm)    
+公开组件库与内部组件库关系：**内部包含公开**，*请按照实际情况选择，保障正常使用*。
+:::
+
+## 🚘 使用
+### 完整引入
+如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便.
+```ts
+// main.ts
+import { createApp } from 'vue'
+import Errantia from 'errantia'
+import '../node_modules/errantia/dist/style.css'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(Errantia)
+app.mount('#app')
+```
+> 内部需要修改引入路径如下
+ ```js
+ import Errantia from '@tongyuan/errantia'
+ import '../node_modules/@tongyuan/errantia/dist/style.css'
+ ```
+### 按需导入
+Errantia 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
+>App.vue
+```html
+<script setup lang="ts">
+  import { erDialog } from 'errantia'
+</script>
+
+<template>
+  <erDialog :isVisible="true" title="Dialog">你好 Errantia</erDialog>
+</template>
+```
+:::warning 警告
+
+如果使用**按需导入**并且只使用了组件，你需要手动导入样式。  
+Example:
+
+```ts
+// 在 main.ts 一次导入即可
+import '../node_modules/errantia/dist/style.css'
+```
+:::
+> 内部需要修改引入路径如下
+ ```js
+ import '../node_modules/@tongyuan/errantia/dist/style.css'
+ ```

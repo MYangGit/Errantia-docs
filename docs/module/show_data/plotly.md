@@ -10,7 +10,7 @@ title: Plot 图表绘制
 
 ### 代码演示
 :::danger 危险
-Errantia 组件不包含 **plotly.js** 任何库和包的内容, 使用**plotly.js** 能力需要提前在自己项目引入**plotly.js**, 不然Plot 图表绘制组件将无法正常工作,引入方式参考[ploty官网](https://plotly.com/javascript/getting-started/).
+Errantia 组件不包含 **plotly.js** 任何库和包的内容, 使用**plotly.js** 能力需要提前在自己项目引入**plotly.js**, 不然Plot 图表绘制组件将无法正常工作,引入方式参考[ploty官网](https://plotly.com/javascript/getting-started/), NPM方式执行：`npm i --save plotly.js-dist-min` 即可.
 :::
 #### 基本与统计图表
 ![table demo](../../../static/img/plotlyBase.png)

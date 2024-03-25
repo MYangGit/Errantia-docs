@@ -4,11 +4,11 @@ title: 5min组件库搭建小波去噪器
 ---
 应用类型：Web应用  
 特征: Errantia 组件库 5分钟实现
-### 实现效果
+## 实现效果
 ![waveRes demo](./img/waveRes.png)
 
-### 实现步骤
-#### 步骤一：组件库安装
+## 实现步骤
+### 步骤一：组件库安装
 
 #### step1：内部专用组件库安装方式(`@tongyuan/errantia`)
 :::info 信息
@@ -53,7 +53,7 @@ const app = createApp(App)
 app.use(Errantia)
 app.mount('#app')
 ```
-#### 步骤二：拆分模块开发
+### 步骤二：拆分模块开发
 #### step1：菜单栏模块实现
 
 1. 结果展示
@@ -638,10 +638,11 @@ app.mount('#app')
   ```
 </details>
 
-#### 步骤三：组装模块合并
+### 步骤三：组装模块合并
 
 ##### 完成演示
 ![statusBar demo](./img/all.png)
+##### 全部代码
 <details>
   <summary>代码</summary>
   ```html
@@ -719,9 +720,6 @@ app.mount('#app')
       </erStatusBar>
     </div>
 </template>
-
-##### 全部代码
-
 <script setup>
   import newIcon from '@/assets/svg/newAdd.svg'
   import addIcon from '@/assets/svg/add.svg'

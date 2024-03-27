@@ -36,8 +36,8 @@ title: Dialog 对话
       cancelBtn="Cancel"
       :outStyleBody="{padding: '10px'}"
       @close="console.log('close')"
-      @onCancel="console.log('cancel')"
-      @onConfirm="console.log('confirm')"
+      @cancel="console.log('cancel')"
+      @confirm="console.log('confirm')"
     >
       <template v-slot:icon>
         <img src="https://img.icons8.com/?size=50&id=11707&format=png" style="width: 20px; height: 20px; margin-right: 5px;"/>

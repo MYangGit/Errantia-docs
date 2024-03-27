@@ -222,7 +222,7 @@ title: Table 表格
 |key|column 的 key，默认展示数据时,`dataSource`对应列的值属性名必须和key相同|`string or number`|—|
 |width|对应列的宽度|number|—|
 |render|函数组件自定义渲染列内容|Function|—|
-|slot|自定义列渲染插槽|Function|—|
+|slot|自定义列渲染插槽|string|—|
 
 ### Events
 |事件名|说明|类型|
